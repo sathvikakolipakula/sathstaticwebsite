@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova - Creative Studio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b12;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 11, 18, 0.9);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #8b5cf6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a:hover {
+      color: #8b5cf6;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      background:
+        radial-gradient(circle at 20% 20%, #6d28d933, transparent 30%),
+        radial-gradient(circle at 80% 70%, #db277733, transparent 30%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: 80px;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 19px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #8b5cf6;
+    }
+
+    .primary:hover {
+      background: #7c3aed;
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid #444;
+    }
+
+    .secondary:hover {
+      border-color: #8b5cf6;
+      color: #a78bfa;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      padding: 35px;
+      background: #12121c;
+      border: 1px solid #242433;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #8b5cf6;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #999;
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat {
+      background: #12121c;
+      border: 1px solid #242433;
+      padding: 30px;
+      text-align: center;
+      border-radius: 18px;
+    }
+
+    .stat h3 {
+      font-size: 38px;
+      color: #a78bfa;
+    }
+
+    .stat p {
+      margin: 0;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #4c1d95, #831843);
+      border-radius: 30px;
+      padding: 80px 20px;
+      margin: 50px 8%;
+    }
+
+    .contact h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .email-btn {
+      background: white;
+      color: #111;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #222;
+      padding: 30px 8%;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+    }
+
+    /* Mobile */
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about h2 {
+        font-size: 36px;
+      }
+
+      .contact h2 {
+        font-size: 35px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">NOVA</div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        We create
+        <span class="gradient">digital experiences.</span>
+      </h1>
+
+      <p>
+        Nova is a creative studio that builds beautiful websites,
+        brands and digital experiences for modern businesses.
+      </p>
+
+      <div class="buttons">
+        <a href="#services" class="btn primary">
+          Explore Services
+        </a>
+
+        <a href="#contact" class="btn secondary">
+          Let's Talk
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Services -->
+  <section id="services">
+
+    <div class="section-title">
+      <h2>What We Do</h2>
+      <p>Creative solutions for modern brands.</p>
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>UI / UX Design</h3>
+        <p>
+          Beautiful and user-friendly interfaces designed
+          to create great experiences.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Web Development</h3>
+        <p>
+          Fast, responsive and modern websites built
+          for all devices.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Brand Strategy</h3>
+        <p>
+          Strong visual identities that help businesses
+          stand out from the competition.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+  <section id="about">
+
+    <div class="about">
+
+      <div>
+        <h2>
+          Ideas become
+          <span class="gradient">impact.</span>
+        </h2>
+
+        <p>
+          We believe great design is more than just looking good.
+          It should communicate clearly, solve problems and create
+          meaningful experiences.
+        </p>
+
+        <p>
+          Our team combines creativity, technology and strategy
+          to turn ideas into digital products people love.
+        </p>
+
+        <a href="#contact" class="btn primary">
+          Work With Us
+        </a>
+      </div>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Projects</p>
+        </div>
+
+        <div class="stat">
+          <h3>30+</h3>
+          <p>Clients</p>
+        </div>
+
+        <div class="stat">
+          <h3>5</h3>
+          <p>Years Experience</p>
+        </div>
+
+        <div class="stat">
+          <h3>12</h3>
+          <p>Countries</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+
+    <div class="contact">
+
+      <h2>Have an idea?</h2>
+
+      <p>
+        Let's turn your idea into something amazing.
+      </p>
+
+      <a
+        href="mailto:hello@nova.com"
+        class="btn email-btn"
+      >
+        hello@nova.com
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div>© 2026 Nova Studio</div>
+    <div>Made with HTML & CSS</div>
+  </footer>
+
+</body>
+</html>
