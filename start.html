@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Rating</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        .star {
+            font-size: 40px;
+            color: gray;
+            cursor: pointer;
+        }
+
+        .star.active {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="start">
+        <span class="star">*</span>
+        <span class="star">*</span>
+        <span class="star">*</span>
+        <span class="star">*</span>
+        <span class="star">*</span>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".star").click(function() {
+
+                var value = $(this).index() + 1;
+
+                $(".star").removeClass("active");
+
+                for (var i = 0; i < value; i++) {
+                    $(".star").eq(i).addClass("active");
+                }
+
+                console.log("Rating: " + value);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
